@@ -11,8 +11,4 @@ const client = new Client({intents:[
   GatewayIntentBits.GuildMembers
 ]});
 
-client.once(Events.ClientReady, c => {
-  console.log(`${c.user.tag} is ready!`);
-});
-
 client.login(process.env.token);
