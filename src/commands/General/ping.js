@@ -1,5 +1,8 @@
+const { ApplicationCommandType } = require('discord.js');
+
 const metadata = {
   name: 'ping',
+  type: ApplicationCommandType.ChatInput,
   description: 'Replies with pong!'
 };
 
