@@ -54,9 +54,9 @@ const run = async (interaction) => {
 
   if (messages.length > 0) {
     return await interaction.reply(messages.join('\n'));
-  } else {
-    return await interaction.reply('No member kicked!');
   }
+
+  return await interaction.reply('No member kicked!');
 };
 
 module.exports = { metadata, run };
