@@ -24,7 +24,7 @@ const run = async (interaction) => {
   const caller = interaction.member;
   const guild = interaction.guild;
 
-  if(!caller.permissions.has(PermissionsBitField.Flags.BanMembers)) return await interaction.reply({ content: 'You have no ban members permission!', ephemeral: true });
+  if (!caller.permissions.has(PermissionsBitField.Flags.BanMembers)) return await interaction.reply({ content: 'You have no ban members permission!', ephemeral: true });
 
   const usersString = interaction.options.getString('users');
   const reason = interaction.options.getString('reason');
@@ -55,8 +55,6 @@ const run = async (interaction) => {
   if (messages.length > 0) {
     return await interaction.reply(messages.join('\n'));
   }
-
-  return await interaction.reply('No member banned!');
 };
 
 module.exports = { metadata, run };
