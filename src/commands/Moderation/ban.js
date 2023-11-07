@@ -26,6 +26,10 @@ const run = async (interaction) => {
 
   if (!caller.permissions.has(PermissionsBitField.Flags.BanMembers)) return await interaction.reply({ content: 'You have no ban members permission!', ephemeral: true });
 
+  const clientMember = await guild.members.fetch(interaction.client.user.id);
+
+  if (!clientMember.permissions.has(PermissionsBitField.Flags.BanMembers)) return await interaction.reply({ content: 'I have no ban members permission!', ephemeral: true });
+
   const usersString = interaction.options.getString('users');
   const reason = interaction.options.getString('reason');
 
