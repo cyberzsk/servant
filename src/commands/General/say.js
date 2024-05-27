@@ -19,6 +19,6 @@ const metadata = {
 const run = async (interaction) => {
   const message = interaction.options.get('message');
   await interaction.reply(message.value);
-};
 
+};
 module.exports = { metadata, run };
