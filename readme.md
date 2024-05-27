@@ -1,4 +1,4 @@
-<img align="left" style="vertical-align: middle" height="120" src="https://cdn.discordapp.com/avatars/924226147384954891/4c016bb4e0a2e66ab7101f654fd2aff6.webp?size=1024" alt="The Servant">
+<img align="left" style="vertical-align: middle" height="120" src="https://cdn.discordapp.com/avatars/924226147384954891/c4087a173d7e7832960d7e640dd7d834.webp?size=1024" alt="The Servant">
 
 # The Servant
 > A new version of Servant that we created in DiscordX, but now using Discord.JS.
