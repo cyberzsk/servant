@@ -1,28 +1,32 @@
 /*
-    Servant - New Version
-      ~ BY: .gg/cyberz
-*/
-const { Client, GatewayIntentBits } = require('discord.js');
-const { initApplicationCommands, handleCommand } = require('./src/handlers/commandHandler');
+       Servant - NodeJS
+       By: CyberZ
+ */
+const path = require('node:path');
+const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
+const { loadCommands, initApplicationCommands, handleCommand } = require('./src/handlers/commandHandler');
 require('dotenv').config();
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
-// Build a new client
-const client = new Client({
-  intents: [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMembers,
-    GatewayIntentBits.GuildModeration
-  ]
+client.commands = new Collection();
+const { commands, assocs } = loadCommands(path.join(__dirname, 'src/commands'));
+(async () => {
+  try {
+    await initApplicationCommands(process.env.ClientId, process.env.ClientToken, commands);
+    console.log('[V] SlashCommands.');
+  } catch (error) {
+    console.error('Error registering application commands:', error);
+  }
+})();
+
+client.once(Events.ClientReady, () => {
+  console.log(`${client.user.tag} ready!`);
 });
 
-client.on('ready', async (client) => {
-  await initApplicationCommands({ debug: false });
-  console.log(`Bot ${client.user.tag} running!`);
+client.on(Events.InteractionCreate, async interaction => {
+  if (interaction.isChatInputCommand()) {
+    await handleCommand(interaction, assocs);
+  }
 });
 
-client.on('interactionCreate', async (interaction) => {
-  if (!interaction.isChatInputCommand()) return;
-  await handleCommand(interaction);
-});
-
-client.login(process.env.token);
+client.login(process.env.ClientToken);
