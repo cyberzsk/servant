@@ -1,40 +1,26 @@
 {
+  "dependencies": {
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5"
+  },
   "name": "servant",
-  "author": "CyberZ",
-  "version": "0.0.1",
-  "description": "A new Servant with discord.js",
+  "version": "1.0.0",
+  "description": "Bot de moderação focado em gerenciar um servidor",
   "main": "index.js",
+  "devDependencies": {
+    "eslint": "^9.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cyberzsk/servant.git"
   },
-  "scripts": {
-    "lint": "eslint \"src/**/*.js\"",
-    "lint:fix": "eslint \"src/**/*.js\" --fix",
-    "watch": "nodemon --watch \"src/**/*\" -e js ./index.js"
-  },
-  "keywords": [
-    "discord.js",
-    "discord-bot",
-    "javascript"
-  ],
+  "author": "CyberZ",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/cyberzsk/servant/issues"
   },
-  "homepage": "https://github.com/cyberzsk/servant#readme",
-  "dependencies": {
-    "@discordjs/builders": "^1.6.5",
-    "@discordjs/rest": "^2.0.1",
-    "discord.js": "^14.13.0",
-    "dotenv": "^16.3.1"
-  },
-  "devDependencies": {
-    "eslint": "^8.51.0",
-    "eslint-config-semistandard": "^17.0.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.28.1",
-    "eslint-plugin-n": "^15.7.0",
-    "eslint-plugin-promise": "^6.1.1",
-    "nodemon": "^3.0.1"
-  }
+  "homepage": "https://github.com/cyberzsk/servant#readme"
 }
